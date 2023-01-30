@@ -1,0 +1,49 @@
+#!/bin/bash
+
+#Author: Caroline
+#Date: July 2022
+#Script for cleaning all docker images & containers
+
+echo " Containers are about to be deleted, are you sure you want to delete all your containers? "
+read sure
+
+if [ sure = yes ]
+
+then
+
+echo " Please proceed and run the command..."
+
+else
+
+echo " Please come back when you are ready to delete your containers"
+
+fi
+
+docker rm -f $(docker ps -aq)
+
+echo " All containers have been removed"
+
+
+sleep 4
+
+echo " Now all the Docker images are about to be deleted, please wait..."
+
+sleep 2
+
+docker rmi -f $(docker images -q)
+
+if [ $? -eq 0 ]
+
+then
+
+echo " All the images have been removed successfully! "
+
+docker images
+
+sleep 2
+
+else
+
+echo " The images have not been deleted, please check what is going on..."
+
+fi
