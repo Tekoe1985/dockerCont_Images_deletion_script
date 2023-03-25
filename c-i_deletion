@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#Author: Caroline
+#Author: adzowa
 #Date: July 2022
 #Script for cleaning all docker images & containers
 
